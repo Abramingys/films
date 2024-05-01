@@ -3,7 +3,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <p className={styles.footerTitle}>
-        <b>netflix</b>roulette
+        <b>films</b>
       </p>
     </footer>
   );
