@@ -1,5 +1,8 @@
 @import './styles/normalize.scss';
 
+#root {
+  height: 100%;
+}
 html {
   padding: 0;
   margin: 0;
@@ -53,11 +56,18 @@ button {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   max-width: 1280px;
   margin: 54px auto;
 }
 .page-container {
   padding: 0 60px;
+}
+
+.maincontent {
+  flex: 1 1 auto;
 }
 
 :root {

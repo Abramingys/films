@@ -1,9 +1,12 @@
 import React from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Movies from './components/Movies/Movies';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
-import './App.scss';
+// import Movies from './components/Movies/Movies';
+
+// import './App.scss';
 
 function App() {
   return (
@@ -11,7 +14,7 @@ function App() {
       <Header />
       <section className="maincontent">
         <div className="page-container">
-          <Movies />
+          <NotFound />
         </div>
       </section>
       <Footer />
