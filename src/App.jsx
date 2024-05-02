@@ -5,10 +5,8 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-
-// import Movies from './components/Movies/Movies';
-
-// import './App.scss';
+import Authorisation from './pages/Authorisation';
+import Registration from './pages/Registration';
 
 function App() {
   return (
@@ -16,10 +14,12 @@ function App() {
       <Header />
       <section className="maincontent">
         <div className="page-container">
-          <Routes>
+          {/* <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
-          </Routes>
+          </Routes> */}
+          <Authorisation />
+          <Registration />
         </div>
       </section>
       <Footer />
