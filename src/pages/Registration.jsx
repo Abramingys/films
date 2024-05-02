@@ -1,4 +1,5 @@
 import SingUp from '../components/SingUp/SingUp';
+import { Link } from 'react-router-dom';
 
 export default function Registration() {
   const styles = {
@@ -9,18 +10,18 @@ export default function Registration() {
   };
   return (
     <div style={styles}>
-      <h1> Registration </h1>
+      <h1> SIGN UP </h1>
       <SingUp />
-      <a
-        href="/registration"
+      <Link
+        to="/signin"
         style={{
           color: 'var(--apricot)',
           fontSize: '20px',
           fontWeight: 'bold',
         }}
       >
-        Log In
-      </a>
+        SING IN
+      </Link>
     </div>
   );
 }

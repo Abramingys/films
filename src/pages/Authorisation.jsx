@@ -1,4 +1,6 @@
-import LogIn from '../components/Login/Login';
+import SingIn from '../components/SignIn/SingIn';
+import { Link } from 'react-router-dom';
+
 export default function Authorisation() {
   const styles = {
     display: 'flex',
@@ -8,18 +10,18 @@ export default function Authorisation() {
   };
   return (
     <div style={styles}>
-      <h1> Authorisation </h1>
-      <LogIn />
-      <a
-        href="/registration"
+      <h1> SING IN </h1>
+      <SingIn />
+      <Link
+        to="/signup"
         style={{
           color: 'var(--apricot)',
           fontSize: '20px',
           fontWeight: 'bold',
         }}
       >
-        Registration
-      </a>
+        SING UP
+      </Link>
     </div>
   );
 }

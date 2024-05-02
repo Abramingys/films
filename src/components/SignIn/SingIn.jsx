@@ -1,6 +1,6 @@
-import styles from './Login.module.scss';
+import styles from './SingIn.module.scss';
 
-export default function LogIn() {
+export default function SingIn() {
   return (
     <form action="" className={styles.block}>
       <input type="email" placeholder="Email" />

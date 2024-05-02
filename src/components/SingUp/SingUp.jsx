@@ -1,4 +1,4 @@
-import styles from '../Login/Login.module.scss';
+import styles from '../SignIn/SingIn.module.scss';
 
 export default function SingUp() {
   return (

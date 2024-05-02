@@ -14,12 +14,12 @@ function App() {
       <Header />
       <section className="maincontent">
         <div className="page-container">
-          {/* <Routes>
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
-          </Routes> */}
-          <Authorisation />
-          <Registration />
+            <Route path="/signin" element={<Authorisation />} />
+            <Route path="/signup" element={<Registration />} />
+          </Routes>
         </div>
       </section>
       <Footer />

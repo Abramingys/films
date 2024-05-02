@@ -9,8 +9,11 @@ export default function Header() {
           <Link to="/">
             <b>netflix</b>roulette
           </Link>
-          <Link to="*">
-            <button className={styles.headerLogoBtn}>+ ADD MOVIE</button>
+          <Link to="/signin">
+            <button className={styles.headerLogoBtn}>Sign In</button>
+          </Link>
+          <Link to="/signup">
+            <button className={styles.headerLogoBtn}>Sing Up</button>
           </Link>
         </div>
         <h1>find your movie</h1>
