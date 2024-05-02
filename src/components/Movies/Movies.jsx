@@ -1,21 +1,27 @@
 import React from 'react';
 import styles from './Movies.module.scss';
 import MoviesCard from '../MoviesCard/MoviesCard';
+import MoviesCardSceleton from '../MoviesCard/MoviesCardSceleton';
+
 export default function Movies() {
   const [films, setFilms] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
-  // React.useEffect(() => {
-  //   fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films', {
-  //     method: 'GET',
-  //     headers: {
-  //       'X-API-KEY': '9844d1bb-3885-4266-bc03-0281c1255cc8',
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((obj) => setFilms(obj.items))
-  //     .catch((err) => console.log(err));
-  // }, []);
+  React.useEffect(() => {
+    fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films', {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': '9844d1bb-3885-4266-bc03-0281c1255cc8',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((obj) => {
+        setFilms(obj.items);
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   console.log(films);
   return (
     <div className={styles.movies}>
@@ -23,14 +29,18 @@ export default function Movies() {
         <b>{films.length}</b> movies found
       </p>
       <ul className={styles.moviesList}>
-        {films.map(({ nameRu, year, posterUrl, kinopoiskId }) => (
-          <MoviesCard
-            key={kinopoiskId}
-            nameRu={nameRu}
-            year={year}
-            posterUrl={posterUrl}
-          />
-        ))}
+        {isLoading
+          ? [...new Array(6)].map((_, index) => (
+              <MoviesCardSceleton key={index} />
+            ))
+          : films.map(({ nameRu, year, posterUrl, kinopoiskId }) => (
+              <MoviesCard
+                key={kinopoiskId}
+                nameRu={nameRu}
+                year={year}
+                posterUrl={posterUrl}
+              />
+            ))}
       </ul>
     </div>
   );
