@@ -1,12 +1,12 @@
-import React from 'react';
+import { createContext, useMemo, useContext } from 'react';
 import { useTheme } from '../hooks/useTheme';
 
-const ThemeContext = React.createContext();
+const ThemeContext = createContext();
 
 export default function ThemeProvider({ children }) {
   const { theme, setTheme } = useTheme();
 
-  const ThemeContextValue = React.useMemo(
+  const ThemeContextValue = useMemo(
     () => ({
       theme,
       setTheme,
@@ -21,4 +21,4 @@ export default function ThemeProvider({ children }) {
   );
 }
 
-export const useThemeContext = () => React.useContext(ThemeContext);
+export const useThemeContext = () => useContext(ThemeContext);

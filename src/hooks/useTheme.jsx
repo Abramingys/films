@@ -1,11 +1,11 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 export function useTheme() {
-  const [theme, setTheme] = React.useState(
+  const [theme, setTheme] = useState(
     localStorage.getItem('app-theme') || 'dark'
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('app-theme', theme);
   }, [theme]);
