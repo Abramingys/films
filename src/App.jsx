@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import { useTheme } from './hooks/useTheme';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -10,7 +9,6 @@ import Authorisation from './pages/Authorisation';
 import Registration from './pages/Registration';
 
 function App() {
-  // const { theme, setTheme } = useTheme();
   return (
     <div className="container">
       <Header />

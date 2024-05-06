@@ -70,8 +70,8 @@ button {
   flex: 1 1 auto;
 }
 
-html[data-theme='ligth'] {
-  background-color: var(--ligth);
+html[data-theme='light'] {
+  background-color: var(--light);
 }
 html[data-theme='dark'] {
   background-color: var(--grey);
@@ -82,5 +82,5 @@ html[data-theme='dark'] {
   --dark-grey: rgba(66, 66, 66, 1);
   --black: rgba(35, 35, 35, 1);
   --white: rgba(228, 228, 228, 1);
-  --ligth: azure;
+  --light: azure;
 }
