@@ -8,10 +8,16 @@ import NotFound from './pages/NotFound';
 import Authorisation from './pages/Authorisation';
 import Registration from './pages/Registration';
 
+import ThemeProvider from './prodivers/themeContext';
+
+// console.log(ThemeProvider);
+
 function App() {
   return (
     <div className="container">
-      <Header />
+      <ThemeProvider>
+        <Header />
+      </ThemeProvider>
       <section className="maincontent">
         <div className="page-container">
           <Routes>
