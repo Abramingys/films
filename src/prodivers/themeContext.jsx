@@ -5,12 +5,15 @@ const ThemeContext = React.createContext();
 
 export default function ThemeProvider({ children }) {
   const { theme, setTheme } = useTheme();
-  console.log(theme);
 
-  const ThemeContextValue = {
-    theme,
-    setTheme,
-  };
+  const ThemeContextValue = React.useMemo(
+    () => ({
+      theme,
+      setTheme,
+    }),
+    [theme]
+  );
+
   return (
     <ThemeContext.Provider value={ThemeContextValue}>
       {children}
