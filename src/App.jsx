@@ -1,17 +1,31 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Movies from './components/Movies/Movies';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+import Authorisation from './pages/Authorisation';
+import Registration from './pages/Registration';
 
-import './App.scss';
+import ThemeProvider from './prodivers/themeContext';
+
+// console.log(ThemeProvider);
 
 function App() {
   return (
     <div className="container">
-      <Header />
+      <ThemeProvider>
+        <Header />
+      </ThemeProvider>
       <section className="maincontent">
         <div className="page-container">
-          <Movies />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/signin" element={<Authorisation />} />
+            <Route path="/signup" element={<Registration />} />
+          </Routes>
         </div>
       </section>
       <Footer />
