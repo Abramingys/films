@@ -1,18 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Loader from '../Loader/Loader';
 
 import styles from './FilmInformation.module.scss';
 
 export default function FilmInformation() {
-  const { kinopoiskId } = useParams();
+  const { id } = useParams();
   const [filmDetails, setFilmDetails] = React.useState({});
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     setIsLoading(true);
-    fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${kinopoiskId}`, {
+    fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
       method: 'GET',
       headers: {
         'X-API-KEY': 'cfd088f5-c917-4302-abb3-249d8da7585f',
@@ -26,7 +25,7 @@ export default function FilmInformation() {
         setFilmDetails(data);
         setIsLoading(false);
       });
-  }, [kinopoiskId]);
+  }, [id]);
 
   if (isLoading) {
     return <Loader />;
