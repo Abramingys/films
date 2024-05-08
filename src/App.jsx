@@ -12,7 +12,6 @@ import MovieInformation from './pages/MovieInformation';
 import ThemeProvider from './prodivers/themeContext';
 
 function App() {
-  const { kinopoiskId } = useParams();
   return (
     <div className="container">
       <ThemeProvider>
