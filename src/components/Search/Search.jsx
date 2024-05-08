@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import styles from './Search.module.scss';
 
 export default function Search() {
-  const [searchValue, setSearchValue] = React.useState('');
-
-  // console.log(searchValue);
+  const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className={styles.search}>
@@ -30,3 +30,7 @@ export default function Search() {
     </div>
   );
 }
+
+Search.propTypes = {
+  searchValue: PropTypes.string,
+};
