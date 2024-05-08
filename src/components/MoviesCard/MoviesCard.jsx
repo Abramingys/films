@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './MoviesCard.module.scss';
 export default function MoviesCard({ posterUrl, nameRu, year, nameOriginal }) {
   return (
@@ -10,3 +12,9 @@ export default function MoviesCard({ posterUrl, nameRu, year, nameOriginal }) {
     </li>
   );
 }
+MoviesCard.propTypes = {
+  posterUrl: PropTypes.string.isRequired,
+  nameRu: PropTypes.string,
+  year: PropTypes.number.isRequired,
+  nameOriginal: PropTypes.string,
+};
