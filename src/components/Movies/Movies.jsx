@@ -18,7 +18,6 @@ export default function Movies() {
     })
       .then((res) => res.json())
       .then((obj) => {
-        console.log(obj);
         setFilms(obj.items);
         setIsLoading(false);
       })

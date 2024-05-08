@@ -1,15 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import styles from './FilmInformation.module.scss';
+import PropTypes from 'prop-types';
 import Loader from '../Loader/Loader';
 
-const FilmInformation = () => {
+import styles from './FilmInformation.module.scss';
+
+export default function FilmInformation() {
   const { kinopoiskId } = useParams();
   const [filmDetails, setFilmDetails] = React.useState({});
   const [isLoading, setIsLoading] = React.useState(true);
-  console.log(filmDetails);
 
-  //   console.log(kinopoiskId);
   React.useEffect(() => {
     setIsLoading(true);
     fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${kinopoiskId}`, {
@@ -45,6 +45,4 @@ const FilmInformation = () => {
       </div>
     </div>
   );
-};
-
-export default FilmInformation;
+}

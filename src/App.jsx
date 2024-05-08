@@ -22,7 +22,6 @@ function App() {
         <div className="page-container">
           <Routes>
             <Route path="/:kinopoiskId" element={<MovieInformation />} />
-            {/* <Route path="/movies/:kinopoiskId" element={<MovieInformation />} /> */}
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/signin" element={<Authorisation />} />
