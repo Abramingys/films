@@ -13,7 +13,7 @@ export default function Header() {
             <b>netflix</b>roulette
           </Link>
           <Link to="/signin">
-            <button className={styles.headerLogoBtn}>Sign In</button>
+            <button className={styles.headerLogoBtn}>Log In</button>
           </Link>
           <ThemeChange />
         </div>
