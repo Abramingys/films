@@ -6,7 +6,6 @@ import styles from './Search.module.scss';
 export default function Search() {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
-  // console.log(suggestions);
 
   const openSearchSuggest = query && (
     <SearchSuggest suggestions={suggestions} />
@@ -24,7 +23,6 @@ export default function Search() {
   );
   useEffect(() => {
     if (query.length > 2) {
-      // Предполагаем, что поиск начинается после ввода 2 символов
       fetch(
         `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${query}`,
         {
