@@ -7,23 +7,24 @@ import FilmInformation from '../FilmInformation/FilmInformation';
 export default function Movies() {
   const [films, setFilms] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  // console.log(films);
 
-  React.useEffect(() => {
-    fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films', {
-      method: 'GET',
-      headers: {
-        'X-API-KEY': 'cfd088f5-c917-4302-abb3-249d8da7585f',
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((obj) => {
-        setFilms(obj.items);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
-    window.scrollTo(0, 0);
-  }, []);
+  // React.useEffect(() => {
+  //   fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films', {
+  //     method: 'GET',
+  //     headers: {
+  //       'X-API-KEY': 'cfd088f5-c917-4302-abb3-249d8da7585f',
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((obj) => {
+  //       setFilms(obj.items);
+  //       setIsLoading(false);
+  //     })
+  //     .catch((err) => console.log(err));
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   return (
     <div className={styles.movies}>
