@@ -10,6 +10,7 @@ export default function Search() {
   const [suggestions, setSuggestions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const debouncedQuery = useDebounce(query, 500);
 
   const clearSearch = () => {
@@ -35,7 +36,7 @@ export default function Search() {
         .then((res) => res.json())
         .then((data) => {
           if (data.items.length === 0) {
-            setNotFound(true); // Установка состояния "не найдено", если результаты отсутствуют
+            setNotFound(true);
           }
           setSuggestions(data.items);
           setIsLoading(false);
@@ -59,6 +60,8 @@ export default function Search() {
         <input
           value={query}
           onChange={handleInputChange}
+          onFocus={() => setIsFocused(true)}
+          // onBlur={() => setIsFocused(false)}
           className={styles.searchText}
           type="text"
           placeholder="What do you want to watch?"
@@ -79,7 +82,12 @@ export default function Search() {
         {notFound && !isLoading && (
           <div style={{ color: 'white' }}>Ничего не найдено</div>
         )}
-        {query && <SearchSuggest suggestions={suggestions} />}
+        {query && isFocused && (
+          <SearchSuggest
+            suggestions={suggestions}
+            onBlur={() => setIsFocused(false)}
+          />
+        )}
       </div>
     </>
   );

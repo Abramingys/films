@@ -57,14 +57,6 @@ export default function SingIn() {
     <>
       {!isLoggedIn ? (
         <form onSubmit={handleSubmit} className={styles.block}>
-          {/* <input
-            type="text"
-            name="username"
-            placeholder="User Name"
-            value={currentUser.username || ''}
-            onChange={handleChange}
-            required
-          /> */}
           <input
             type="email"
             name="email"
