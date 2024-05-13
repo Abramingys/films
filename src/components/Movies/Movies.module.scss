@@ -1,13 +1,13 @@
 .movies {
-  padding-bottom: 70px;
+  color: var(--white);
   font-size: 18px;
   font-weight: 500;
   line-height: 22px;
-  color: var(--white);
+  padding-bottom: 70px;
 
   &FoundResult {
-    padding: 24px 0;
     font-weight: 400;
+    padding: 24px 0;
   }
 
   &List {
