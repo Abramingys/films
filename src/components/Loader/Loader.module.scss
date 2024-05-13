@@ -2,12 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
 }
 
 .loader {
-  border: 5px solid var(--white); /* Light grey */
-  border-top: 5px solid var(--apricot); /* Blue */
+  border: 5px solid var(--white);
+  border-top: 5px solid var(--apricot);
   border-radius: 50%;
   width: 70px;
   height: 70px;

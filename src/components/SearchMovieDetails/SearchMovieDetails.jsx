@@ -1,9 +1,7 @@
-import React from 'react';
-import styles from './Movies.module.scss';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import MoviesCardSkeleton from '../MoviesCard/MoviesCardSkeleton';
 
-export default function Movies({ films, isLoading }) {
+export default function SearchMovieDetails(films) {
   return (
     <div className={styles.movies}>
       <p className={styles.moviesFoundResult}>
