@@ -2,23 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
 }
 
 .loader {
-  border: 5px solid var(--white); /* Light grey */
-  border-top: 5px solid var(--apricot); /* Blue */
-  border-radius: 50%;
   width: 70px;
   height: 70px;
+  border-radius: 50%;
+  border: 5px solid var(--white);
+  border-top: 5px solid var(--apricot);
   animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-  0% {
+  from {
     transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }

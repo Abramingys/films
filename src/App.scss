@@ -1,26 +1,22 @@
 @import './styles/normalize.scss';
 
+html,
+body,
 #root {
   height: 100%;
-}
-html {
-  padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  height: 100%;
-  scroll-behavior: smooth;
-  transition: background-color 200ms linear;
+  padding: 0;
 }
-body {
-  height: 100%;
-}
+
 * {
   box-sizing: border-box;
 }
-img {
-  max-width: 100%;
-  display: block;
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  scroll-behavior: smooth;
+  transition: background-color 200ms linear;
 }
 
 h1,
@@ -31,7 +27,11 @@ h5,
 h6,
 ul,
 li,
-p {
+p,
+ul,
+li,
+a,
+button {
   margin: 0;
   padding: 0;
 }
@@ -40,19 +40,19 @@ ul {
   list-style-type: none;
 }
 
-li {
-  list-style: none;
-}
-
 a {
   display: block;
   text-decoration: none;
 }
 
 button {
-  padding: 0;
   cursor: pointer;
   transition: all 0.8s;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 .container {
@@ -62,6 +62,7 @@ button {
   max-width: 1280px;
   margin: 54px auto;
 }
+
 .page-container {
   padding: 0 60px;
 }
@@ -70,12 +71,6 @@ button {
   flex: 1 1 auto;
 }
 
-html[data-theme='light'] {
-  background-color: var(--light);
-}
-html[data-theme='dark'] {
-  background-color: var(--grey);
-}
 :root {
   --apricot: rgba(246, 82, 97, 1);
   --grey: rgba(85, 85, 85);
@@ -83,4 +78,12 @@ html[data-theme='dark'] {
   --black: rgba(35, 35, 35, 1);
   --white: rgba(228, 228, 228, 1);
   --light: azure;
+}
+
+html[data-theme='light'] {
+  background-color: var(--light);
+}
+
+html[data-theme='dark'] {
+  background-color: var(--grey);
 }

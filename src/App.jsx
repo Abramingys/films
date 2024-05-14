@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Authorisation from './pages/Authorisation';
 import MovieInformation from './pages/MovieInformation';
+import SearchMovies from './pages/SearchMovies';
 
 import ThemeProvider from './prodivers/themeContext';
 
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/movie/:id" element={<MovieInformation />} />
             <Route path="/" element={<Home />} />
+            <Route path="/search" element={<SearchMovies />} />
             <Route path="/signin" element={<Authorisation />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

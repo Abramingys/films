@@ -2,31 +2,8 @@ import React from 'react';
 import styles from './Movies.module.scss';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import MoviesCardSkeleton from '../MoviesCard/MoviesCardSkeleton';
-import FilmInformation from '../FilmInformation/FilmInformation';
 
-export default function Movies() {
-  const [films, setFilms] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
-  // console.log(films);
-
-  React.useEffect(() => {
-    const apiKey = import.meta.env.VITE_API_KEY;
-    fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films', {
-      method: 'GET',
-      headers: {
-        'X-API-KEY': apiKey,
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((obj) => {
-        setFilms(obj.items);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
-    window.scrollTo(0, 0);
-  }, []);
-
+export default function Movies({ films, isLoading }) {
   return (
     <div className={styles.movies}>
       <p className={styles.moviesFoundResult}>
