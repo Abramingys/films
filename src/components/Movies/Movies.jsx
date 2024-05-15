@@ -2,7 +2,10 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import MoviesCardSkeleton from '../MoviesCard/MoviesCardSkeleton';
 import styles from './Movies.module.scss';
 
-export default function Movies({ films, isLoading }) {
+export default function Movies({ films, isLoading, error }) {
+  if (error || !films) {
+    return <Loader />;
+  }
   return (
     <div className={styles.movies}>
       <p className={styles.moviesFoundResult}>

@@ -14,7 +14,7 @@ export default function Search() {
   const [isFocused, setIsFocused] = useState(false);
   const debouncedQuery = useDebounce(query, 500);
   const navigate = useNavigate();
-  // console.log(suggestions);
+  console.log(query);
 
   const clearSearch = () => {
     setQuery('');
