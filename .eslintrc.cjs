@@ -12,6 +12,10 @@ module.exports = {
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
   rules: {
+    'no-console': 'warn',
+    'eslint-plugin-import/prefer-default-export': 'off',
+    'react/jsx-no-useless-fragment': 'warn',
+    'no-unused-expressions': 'error',
     'react/jsx-no-target-blank': 'off',
     'react-refresh/only-export-components': [
       'warn',
