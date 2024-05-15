@@ -1,5 +1,3 @@
-import React from 'react';
-
 import MoviesCard from '../MoviesCard/MoviesCard';
 import MoviesCardSkeleton from '../MoviesCard/MoviesCardSkeleton';
 import styles from './Movies.module.scss';

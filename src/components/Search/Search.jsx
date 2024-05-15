@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useDebounce } from '../../hooks/useDebounce';
@@ -14,7 +14,8 @@ export default function Search() {
   const [isFocused, setIsFocused] = useState(false);
   const debouncedQuery = useDebounce(query, 500);
   const navigate = useNavigate();
-  console.log(suggestions);
+  // console.log(suggestions);
+
   const clearSearch = () => {
     setQuery('');
     setSuggestions([]);
