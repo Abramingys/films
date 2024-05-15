@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from './Movies.module.scss';
+
 import MoviesCard from '../MoviesCard/MoviesCard';
 import MoviesCardSkeleton from '../MoviesCard/MoviesCardSkeleton';
+import styles from './Movies.module.scss';
 
 export default function Movies({ films, isLoading }) {
   return (
@@ -24,7 +25,7 @@ export default function Movies({ films, isLoading }) {
                   nameOriginal={nameOriginal}
                   kinopoiskId={kinopoiskId}
                 />
-              )
+              ),
             )}
       </ul>
     </div>

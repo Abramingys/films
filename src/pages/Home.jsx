@@ -1,6 +1,6 @@
-import Movies from '../components/Movies/Movies';
-
 import React, { useState } from 'react';
+
+import Movies from '../components/Movies/Movies';
 
 export default function Home() {
   const [films, setFilms] = useState([]);
