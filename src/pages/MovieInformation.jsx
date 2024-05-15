@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Loader from '../components/Loader/Loader';
 
 import FilmInformation from '../components/FilmInformation/FilmInformation';
+import Loader from '../components/Loader/Loader';
 
 export default function MovieInformation() {
   const { id } = useParams();

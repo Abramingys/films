@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import Search from '../Search/Search';
 import ThemeChange from '../ThemeChange/ThemeChange';
-
-import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
 export default function Header() {

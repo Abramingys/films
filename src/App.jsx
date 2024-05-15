@@ -1,14 +1,13 @@
 import React from 'react';
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 
-import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Home from './pages/Home';
-import NotFound from './pages/NotFound';
+import Header from './components/Header/Header';
 import Authorisation from './pages/Authorisation';
+import Home from './pages/Home';
 import MovieInformation from './pages/MovieInformation';
+import NotFound from './pages/NotFound';
 import SearchMovies from './pages/SearchMovies';
-
 import ThemeProvider from './prodivers/themeContext';
 
 function App() {

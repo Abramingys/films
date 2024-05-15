@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import Movies from '../components/Movies/Movies';
 
-export default function SearchMovieDetails() {
+export default function SearchMovies() {
   const [suggestionsFilms, setSuggestionsFilms] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,7 +21,7 @@ export default function SearchMovieDetails() {
           'X-API-KEY': apiKey,
           'Content-Type': 'application/json',
         },
-      }
+      },
     )
       .then((res) => res.json())
       .then((obj) => {

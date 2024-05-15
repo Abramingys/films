@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useDebounce } from '../../hooks/useDebounce';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useDebounce } from '../../hooks/useDebounce';
+import Loader from '../Loader/Loader';
 import SearchSuggest from '../SearchSuggest/SearchSuggest';
 import styles from './Search.module.scss';
-import Loader from '../Loader/Loader';
 
 export default function Search() {
   const [query, setQuery] = useState('');
@@ -14,7 +14,7 @@ export default function Search() {
   const [isFocused, setIsFocused] = useState(false);
   const debouncedQuery = useDebounce(query, 500);
   const navigate = useNavigate();
-  console.log(suggestions);
+  console.log(query);
   const clearSearch = () => {
     setQuery('');
     setSuggestions([]);
@@ -33,7 +33,7 @@ export default function Search() {
             'X-API-KEY': apiKey,
             'Content-Type': 'application/json',
           },
-        }
+        },
       )
         .then((res) => res.json())
         .then((data) => {

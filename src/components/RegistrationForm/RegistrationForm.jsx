@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logIn, logOut } from '../../redux/slices/authSlice';
 
+import { logIn, logOut } from '../../redux/slices/authSlice';
 import styles from './RegistrationForm.module.scss';
 
 export default function SingIn() {
   const [users, setUsers] = useState(
-    JSON.parse(localStorage.getItem('users')) || {}
+    JSON.parse(localStorage.getItem('users')) || {},
   );
   const [currentUser, setCurrentUser] = useState({});
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -37,7 +37,7 @@ export default function SingIn() {
     setUsers({ ...users, [currentUser.email]: currentUser });
     localStorage.setItem(
       'users',
-      JSON.stringify({ ...users, [currentUser.email]: currentUser })
+      JSON.stringify({ ...users, [currentUser.email]: currentUser }),
     );
     localStorage.setItem('loggedInUser', JSON.stringify(currentUser));
     dispatch(logIn());
