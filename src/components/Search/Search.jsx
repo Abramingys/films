@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useDebounce } from '../../hooks/useDebounce';
+import { getApiUrl, useFetch } from '../../hooks/useFetch';
 import Loader from '../Loader/Loader';
 import SearchSuggest from '../SearchSuggest/SearchSuggest';
 import styles from './Search.module.scss';
@@ -14,41 +15,46 @@ export default function Search() {
   const [isFocused, setIsFocused] = useState(false);
   const debouncedQuery = useDebounce(query, 500);
   const navigate = useNavigate();
-
+  const { data, loading, error } = useFetch(
+    debouncedQuery.length > 2
+      ? getApiUrl(`/films?keyword=${debouncedQuery}`)
+      : null,
+  );
+  console.log(data);
   const clearSearch = () => {
     setQuery('');
     setSuggestions([]);
     setNotFound(false);
   };
 
-  useEffect(() => {
-    if (debouncedQuery.length > 2) {
-      setIsLoading(true);
-      setNotFound(false);
-      const apiKey = import.meta.env.VITE_API_KEY;
-      fetch(
-        `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${debouncedQuery}`,
-        {
-          headers: {
-            'X-API-KEY': apiKey,
-            'Content-Type': 'application/json',
-          },
-        },
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.items.length === 0) {
-            setNotFound(true);
-          }
-          setSuggestions(data.items);
-          setIsLoading(false);
-        })
-        .catch((err) => console.error(err));
-    } else {
-      setSuggestions([]);
-      setNotFound(false);
-    }
-  }, [debouncedQuery]);
+  // useEffect(() => {
+  //   if (debouncedQuery.length > 2) {
+  //     setIsLoading(true);
+  //     setNotFound(false);
+  //     const apiKey = import.meta.env.VITE_API_KEY;
+  //     fetch(
+  //       `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${debouncedQuery}`,
+  //       {
+  //         headers: {
+  //           'X-API-KEY': apiKey,
+  //           'Content-Type': 'application/json',
+  //         },
+  //       },
+  //     )
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (data.items.length === 0) {
+  //           setNotFound(true);
+  //         }
+  //         setSuggestions(data.items);
+  //         setIsLoading(false);
+  //       })
+  //       .catch((err) => console.error(err));
+  //   } else {
+  //     setSuggestions([]);
+  //     setNotFound(false);
+  //   }
+  // }, [debouncedQuery]);
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);

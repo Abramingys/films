@@ -10,28 +10,29 @@ export function useFetch(url, options = {}) {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
+    if (url) {
+      setLoading(true);
 
-    fetch(url, {
-      ...options,
-      method: 'GET',
-      headers: {
-        'X-API-KEY': import.meta.env.VITE_API_KEY,
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res);
-        setLoading(false);
+      fetch(url, {
+        ...options,
+        method: 'GET',
+        headers: {
+          'X-API-KEY': import.meta.env.VITE_API_KEY,
+          'Content-Type': 'application/json',
+        },
       })
-      .catch(() => {
-        setError(true);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+        .then((res) => res.json())
+        .then((res) => {
+          setData(res);
+        })
+        .catch(() => {
+          setError(true);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   }, [url]);
 
-  return { data, setData, loading, error };
+  return { data, loading, error };
 }
