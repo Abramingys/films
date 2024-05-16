@@ -1,8 +1,8 @@
-import { Suspense, lazy } from 'react';
+import { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import Loader from '../components/Loader/Loader';
-import NotFound from '../pages/NotFound';
+import { Loader } from '../components/Loader/Loader';
+import { NotFound } from '../pages/NotFound';
 import { PageRootLayout } from '../pages/PageRootLayout';
 import { lazyLoadedComponents } from './lazyRoutes';
 
@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/signin',
+        path: '/registration',
         element: (
           <Suspense fallback={<Loader />}>
             <Authorisation />

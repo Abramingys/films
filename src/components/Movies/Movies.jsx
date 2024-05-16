@@ -1,7 +1,7 @@
-import MoviesCard from '../MoviesCard/MoviesCard';
+import { MoviesCard } from '../MoviesCard/MoviesCard';
 import styles from './Movies.module.scss';
 
-export default function Movies({ films, error }) {
+export function Movies({ films, error }) {
   // if (error || !films) {
   //   return <Loader />;
   // }

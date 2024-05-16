@@ -1,7 +1,7 @@
-import { useThemeContext } from '../../prodivers/themeContext';
+import { useThemeContext } from '../../providers/themeContext';
 import styles from './ThemeChange.module.scss';
 
-export default function ThemeChange() {
+export function ThemeChange() {
   const { theme, setTheme } = useThemeContext();
 
   return (

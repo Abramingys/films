@@ -12,7 +12,7 @@ export default function ThemeProvider({ children }) {
       theme,
       setTheme,
     }),
-    [theme],
+    [theme, setTheme],
   );
 
   return (

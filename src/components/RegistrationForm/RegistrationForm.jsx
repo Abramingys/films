@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { logIn, logOut } from '../../redux/slices/authSlice';
+import { PageButton } from '../PageButton/PageButton';
 import styles from './RegistrationForm.module.scss';
 
-export default function SingIn() {
+export function RegistrationForm() {
   const [users, setUsers] = useState(
     JSON.parse(localStorage.getItem('users')) || {},
   );
@@ -21,7 +22,7 @@ export default function SingIn() {
       setCurrentUser(JSON.parse(loggedInUser));
       dispatch(logIn());
     }
-  }, []);
+  }, [dispatch]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -79,15 +80,11 @@ export default function SingIn() {
             placeholder="Password"
             onChange={handleChange}
           />
-          <button type="button" onClick={handleLogin}>
-            Log in
-          </button>
-          <button type="submit">Sign Up</button>
+          <PageButton text={'Log in'} handle={handleLogin} />
+          <PageButton text={'Sign Up'} />
         </form>
       ) : (
-        <button type="button" onClick={handleLogout}>
-          Log out
-        </button>
+        <PageButton text={'Log out'} handle={handleLogout} />
       )}
     </>
   );

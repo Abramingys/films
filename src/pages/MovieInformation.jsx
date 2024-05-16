@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 
-import FilmInformation from '../components/FilmInformation/FilmInformation';
-import Loader from '../components/Loader/Loader';
+import { FilmInformation } from '../components/FilmInformation/FilmInformation';
+import { Loader } from '../components/Loader/Loader';
 import { getApiUrl, useFetch } from '../hooks/useFetch';
 
 export default function MovieInformation() {

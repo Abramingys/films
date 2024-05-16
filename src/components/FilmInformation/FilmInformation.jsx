@@ -1,6 +1,6 @@
 import styles from './FilmInformation.module.scss';
 
-export default function FilmInformation({ filmDetails }) {
+export function FilmInformation({ filmDetails }) {
   return (
     <div className={styles.filmInformation}>
       <img
