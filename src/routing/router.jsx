@@ -1,11 +1,13 @@
+import { Suspense, lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import Authorisation from '../pages/Authorisation';
-import Home from '../pages/Home';
-import MovieInformation from '../pages/MovieInformation';
+import Loader from '../components/Loader/Loader';
 import NotFound from '../pages/NotFound';
 import { PageRootLayout } from '../pages/PageRootLayout';
-import SearchMovies from '../pages/SearchMovies';
+import { lazyLoadedComponents } from './lazyRoutes';
+
+const { Home, SearchMovies, Authorisation, MovieInformation } =
+  lazyLoadedComponents;
 
 export const router = createBrowserRouter([
   {
@@ -14,14 +16,36 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: '/search',
-        element: <SearchMovies />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <SearchMovies />
+          </Suspense>
+        ),
       },
-      { path: '/signin', element: <Authorisation /> },
-      { path: '/movie/:id', element: <MovieInformation /> },
+      {
+        path: '/signin',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Authorisation />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/movie/:id',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <MovieInformation />
+          </Suspense>
+        ),
+      },
       {
         path: '*',
         element: <NotFound />,

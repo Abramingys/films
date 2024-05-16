@@ -33,5 +33,5 @@ export function useFetch(url, options = {}) {
       });
   }, [url]);
 
-  return { data, loading, error };
+  return { data, setData, loading, error };
 }
