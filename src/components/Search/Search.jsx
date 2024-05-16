@@ -1,75 +1,42 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useDebounce } from '../../hooks/useDebounce';
 import { getApiUrl, useFetch } from '../../hooks/useFetch';
-import Loader from '../Loader/Loader';
 import SearchSuggest from '../SearchSuggest/SearchSuggest';
 import styles from './Search.module.scss';
 
 export default function Search() {
   const [query, setQuery] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [notFound, setNotFound] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const debouncedQuery = useDebounce(query, 500);
   const navigate = useNavigate();
-  const { data, loading, error } = useFetch(
+  const { data, setData, loading, error } = useFetch(
     debouncedQuery.length > 2
       ? getApiUrl(`/films?keyword=${debouncedQuery}`)
       : null,
   );
-  console.log(data);
+
   const clearSearch = () => {
     setQuery('');
-    setSuggestions([]);
-    setNotFound(false);
+    setData((data.items = []));
   };
-
-  // useEffect(() => {
-  //   if (debouncedQuery.length > 2) {
-  //     setIsLoading(true);
-  //     setNotFound(false);
-  //     const apiKey = import.meta.env.VITE_API_KEY;
-  //     fetch(
-  //       `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${debouncedQuery}`,
-  //       {
-  //         headers: {
-  //           'X-API-KEY': apiKey,
-  //           'Content-Type': 'application/json',
-  //         },
-  //       },
-  //     )
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data.items.length === 0) {
-  //           setNotFound(true);
-  //         }
-  //         setSuggestions(data.items);
-  //         setIsLoading(false);
-  //       })
-  //       .catch((err) => console.error(err));
-  //   } else {
-  //     setSuggestions([]);
-  //     setNotFound(false);
-  //   }
-  // }, [debouncedQuery]);
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
-    setSuggestions([]);
-    setNotFound(false);
+    setData([]);
   };
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Проверяем, что загрузка завершена, есть предложения и ничего не найдено
-    if (!isLoading && suggestions.length > 0 && !notFound) {
+
+    if (!loading && !data) {
       navigate(`/search?keyword=${query}`);
-      setSuggestions([]);
+      setQuery('');
+      setData((data.items = []));
     }
   };
+
   return (
     <>
       <form onSubmit={handleSearch} className={styles.search}>
@@ -77,7 +44,7 @@ export default function Search() {
           value={query}
           onChange={handleInputChange}
           onFocus={() => setIsFocused(true)}
-          // onBlur={() => setIsFocused(false)}
+          onBlur={() => setIsFocused(false)}
           className={styles.searchText}
           type="text"
           placeholder="What do you want to watch?"
@@ -96,14 +63,12 @@ export default function Search() {
         <button type="submit" className={styles.searchBtn}>
           Search
         </button>
-        {isLoading && <Loader />}
-        {notFound && !isLoading && (
-          <div style={{ color: 'white' }}>Ничего не найдено</div>
-        )}
         {query && (
           <SearchSuggest
-            suggestions={suggestions}
-            setSuggestions={setSuggestions}
+            data={data?.items}
+            setData={setData}
+            error={error}
+            setQuery={setQuery}
           />
         )}
       </form>

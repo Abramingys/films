@@ -3,16 +3,27 @@ import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import styles from './SearchSuggest.module.scss';
 
-export default function SearchSuggest({ suggestions, setSuggestions }) {
+export default function SearchSuggest({ data, setData, error, setQuery }) {
+  console.log(data);
   return (
     <ul className={styles.searchSuggest}>
-      {suggestions.map(({ nameRu, nameOriginal, kinopoiskId }) => (
-        <Link key={kinopoiskId} to={`/movie/${kinopoiskId}`}>
-          <li key={kinopoiskId} onClick={() => setSuggestions([])}>
-            <p>{nameRu ?? nameOriginal}</p>
-          </li>
-        </Link>
-      ))}
+      {error || data === undefined ? (
+        <Loader />
+      ) : (
+        data.map(({ nameRu, nameOriginal, kinopoiskId }) => (
+          <Link key={kinopoiskId} to={`/movie/${kinopoiskId}`}>
+            <li
+              key={kinopoiskId}
+              onClick={() => {
+                setData((data.items = []));
+                setQuery('');
+              }}
+            >
+              <p>{nameRu ?? nameOriginal}</p>
+            </li>
+          </Link>
+        ))
+      )}
     </ul>
   );
 }

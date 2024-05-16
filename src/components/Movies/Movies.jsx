@@ -2,9 +2,9 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import styles from './Movies.module.scss';
 
 export default function Movies({ films, error }) {
-  if (error || !films) {
-    return <Loader />;
-  }
+  // if (error || !films) {
+  //   return <Loader />;
+  // }
   return (
     <div className={styles.movies}>
       <p className={styles.moviesFoundResult}>

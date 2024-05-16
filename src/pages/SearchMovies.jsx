@@ -7,9 +7,7 @@ import { getApiUrl, useFetch } from '../hooks/useFetch';
 export default function SearchMovies() {
   const [searchParams] = useSearchParams();
   const searchName = searchParams.get('keyword');
-  const { data, loading, error } = useFetch(
-    getApiUrl(`/films?keyword=${searchName}`),
-  );
+  const { data, error } = useFetch(getApiUrl(`/films?keyword=${searchName}`));
 
   if (error || !data) {
     return <Loader />;
