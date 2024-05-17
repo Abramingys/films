@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 export default function useFetchMultiple(values, options = {}) {
   const [data, setData] = useState([]);
@@ -45,12 +45,7 @@ export default function useFetchMultiple(values, options = {}) {
           setLoading(false);
         });
     };
-
-    if (values.length > 0) {
-      fetchData();
-    } else {
-      setLoading(false);
-    }
+    fetchData();
   }, [values]);
 
   return { data, loading, error };
