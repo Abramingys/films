@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { logIn, logOut } from '../redux/slices/authSlice';
 import {
@@ -8,7 +9,8 @@ import {
   setLocalStorageItem,
 } from '../utils/LocalStorageUtil';
 
-const useAuth = () => {
+export default function useAuth() {
+  const navigate = useNavigate();
   const [users, setUsers] = useState(getLocalStorageItem('users') || {});
   const [currentUser, setCurrentUser] = useState({});
   const dispatch = useDispatch();
@@ -25,12 +27,14 @@ const useAuth = () => {
   const handleLogin = (user) => {
     setLocalStorageItem('loggedInUser', user);
     dispatch(logIn());
+    navigate('/');
   };
   const loginUser = (e) => {
     e.preventDefault();
     const user = users[currentUser.email];
     if (user && user.password === currentUser.password) {
       handleLogin(user);
+      navigate('/');
     } else {
       alert('неверный логин или пароль');
     }
@@ -40,6 +44,7 @@ const useAuth = () => {
     removeLocalStorageItem('loggedInUser');
     setCurrentUser({});
     dispatch(logOut());
+    navigate('/');
   };
 
   const addUser = (user) => {
@@ -58,6 +63,4 @@ const useAuth = () => {
     handleLogout,
     addUser,
   };
-};
-
-export default useAuth;
+}
