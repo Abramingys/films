@@ -7,8 +7,14 @@ import { NotFound } from '../pages/NotFound';
 import { PageRootLayout } from '../pages/PageRootLayout';
 import { lazyLoadedComponents } from './lazyRoutes';
 
-const { Home, SearchMovies, Authorisation, MovieInformation } =
-  lazyLoadedComponents;
+const {
+  Home,
+  SearchMovies,
+  Authorisation,
+  MovieInformation,
+  FavouritesPage,
+  History,
+} = lazyLoadedComponents;
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +57,26 @@ export const router = createBrowserRouter([
           <Suspense fallback={<Loader />}>
             <ErrorBoundary>
               <MovieInformation />
+            </ErrorBoundary>
+          </Suspense>
+        ),
+      },
+      {
+        path: '/favourites',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ErrorBoundary>
+              <FavouritesPage />
+            </ErrorBoundary>
+          </Suspense>
+        ),
+      },
+      {
+        path: '/history',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ErrorBoundary>
+              <History />
             </ErrorBoundary>
           </Suspense>
         ),

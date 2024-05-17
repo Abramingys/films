@@ -5,4 +5,6 @@ export const lazyLoadedComponents = {
   SearchMovies: lazy(() => import('../pages/SearchMovies')),
   Authorisation: lazy(() => import('../pages/Authorisation')),
   MovieInformation: lazy(() => import('../pages/MovieInformation')),
+  FavouritesPage: lazy(() => import('../pages/FavouritesPage')),
+  History: lazy(() => import('../pages/History')),
 };
