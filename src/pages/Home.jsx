@@ -3,7 +3,7 @@ import { Movies } from '../components/Movies/Movies';
 import { getApiUrl, useFetch } from '../hooks/useFetch';
 
 export default function Home() {
-  const { data, loading, error } = useFetch(getApiUrl('/films'));
+  const { data, loading, error } = useFetch(getApiUrl('/films?page=3'));
 
   if (error || !data) {
     return <Loader />;
