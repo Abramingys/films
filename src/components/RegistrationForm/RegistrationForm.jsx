@@ -1,5 +1,3 @@
-import React from 'react';
-
 import useAuth from '../../hooks/useAuth';
 import { PageButton } from '../PageButton/PageButton';
 import styles from '../RegistrationForm/RegistrationForm.module.scss';

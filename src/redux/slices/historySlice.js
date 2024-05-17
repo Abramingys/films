@@ -8,7 +8,9 @@ export const historySlice = createSlice({
   reducers: {
     addToHistory: (state, action) => {
       const item = action.payload;
-      state.histories.push(item);
+      if (!state.histories.includes(item)) {
+        state.histories.push(item);
+      }
     },
   },
 });
