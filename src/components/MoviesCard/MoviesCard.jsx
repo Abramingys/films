@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import styles from './MoviesCard.module.scss';
 
-export default function MoviesCard({
+export function MoviesCard({
   posterUrl,
   nameRu,
   year,
