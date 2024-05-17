@@ -18,15 +18,21 @@ export function Header() {
             <b>netflix</b>roulette
           </Link>
           {loading ? null : isLoggedIn ? (
-            <PageButton text={'Log out'} handle={handleLogout} />
+            <>
+              <PageButton text={'Log out'} handle={handleLogout} />
+              <Link to="/favourites">
+                <PageButton text={'Favourites Page'} />
+              </Link>
+              <Link to="/history">
+                <PageButton text={'History Page'} />
+              </Link>
+            </>
           ) : (
             <Link to="/registration">
               <PageButton text={'Log In'} />
             </Link>
           )}
-          <Link to="/favourites">
-            <PageButton text={'Favourites Page'} />
-          </Link>
+
           <ThemeChange />
         </div>
         <h1>find your movie</h1>
