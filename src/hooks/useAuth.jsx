@@ -13,6 +13,7 @@ export default function useAuth() {
   const navigate = useNavigate();
   const [users, setUsers] = useState(getLocalStorageItem('users') || {});
   const [currentUser, setCurrentUser] = useState({});
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
@@ -22,6 +23,7 @@ export default function useAuth() {
       setCurrentUser(loggedInUser);
       dispatch(logIn());
     }
+    setLoading(false);
   }, [dispatch]);
 
   const handleLogin = (user) => {
@@ -44,7 +46,6 @@ export default function useAuth() {
     removeLocalStorageItem('loggedInUser');
     setCurrentUser({});
     dispatch(logOut());
-    navigate('/');
   };
 
   const addUser = (user) => {
@@ -62,5 +63,6 @@ export default function useAuth() {
     loginUser,
     handleLogout,
     addUser,
+    loading,
   };
 }
