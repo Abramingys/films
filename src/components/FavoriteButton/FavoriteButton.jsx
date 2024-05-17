@@ -16,10 +16,8 @@ export function FavoriteButton({ kinopoiskId }) {
   const handleClick = () => {
     if (isActive) {
       dispatch(removeFromFavorites(kinopoiskId));
-      console.log('хуй');
     } else {
       dispatch(addToFavorites(kinopoiskId));
-      console.log('пизда');
     }
   };
 
