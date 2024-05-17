@@ -24,7 +24,9 @@ export function Header() {
               <PageButton text={'Log In'} />
             </Link>
           )}
-
+          <Link to="/favourites">
+            <PageButton text={'Favourites Page'} />
+          </Link>
           <ThemeChange />
         </div>
         <h1>find your movie</h1>
