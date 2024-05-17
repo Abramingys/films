@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import { Loader } from '../components/Loader/Loader';
+import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 import { NotFound } from '../pages/NotFound';
 import { PageRootLayout } from '../pages/PageRootLayout';
 import { lazyLoadedComponents } from './lazyRoutes';
@@ -18,7 +19,9 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <Suspense fallback={<Loader />}>
-            <Home />
+            <ErrorBoundary>
+              <Home />
+            </ErrorBoundary>
           </Suspense>
         ),
       },
@@ -26,7 +29,9 @@ export const router = createBrowserRouter([
         path: '/search',
         element: (
           <Suspense fallback={<Loader />}>
-            <SearchMovies />
+            <ErrorBoundary>
+              <SearchMovies />
+            </ErrorBoundary>
           </Suspense>
         ),
       },
@@ -34,7 +39,9 @@ export const router = createBrowserRouter([
         path: '/registration',
         element: (
           <Suspense fallback={<Loader />}>
-            <Authorisation />
+            <ErrorBoundary>
+              <Authorisation />
+            </ErrorBoundary>
           </Suspense>
         ),
       },
@@ -42,7 +49,9 @@ export const router = createBrowserRouter([
         path: '/movie/:id',
         element: (
           <Suspense fallback={<Loader />}>
-            <MovieInformation />
+            <ErrorBoundary>
+              <MovieInformation />
+            </ErrorBoundary>
           </Suspense>
         ),
       },
