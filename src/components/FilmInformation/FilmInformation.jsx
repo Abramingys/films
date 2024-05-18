@@ -5,7 +5,7 @@ import styles from './FilmInformation.module.scss';
 
 export function FilmInformation({ filmDetails }) {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  console.log(filmDetails);
+
   return (
     <div className={styles.filmInformation}>
       <img

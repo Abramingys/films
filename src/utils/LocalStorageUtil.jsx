@@ -24,11 +24,18 @@ export const setLocalStorageHistory = (arr) => {
 export const getLocalStorageHistory = () => {
   const loggedInUser = getLocalStorageItem('loggedInUser');
   const users = getLocalStorageItem('users') || {};
-  // console.log(users[loggedInUser.email].history);
-  // console.log(loggedInUser);
-  // console.log(users);
   if (loggedInUser && users.hasOwnProperty(loggedInUser.email)) {
     return users[loggedInUser.email].history || [];
   }
   return [];
+};
+
+export const setLocalStorageFavourite = (arr) => {
+  const users = getLocalStorageItem('users');
+  const email = getLocalStorageItem('loggedInUser').email;
+
+  if (users.hasOwnProperty(email)) {
+    users[email].favourite = arr;
+    setLocalStorageItem('users', users);
+  }
 };

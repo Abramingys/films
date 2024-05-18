@@ -8,7 +8,7 @@ import {
 export const historySlice = createSlice({
   name: 'history',
   initialState: {
-    histories: getLocalStorageHistory(),
+    histories: [],
   },
   reducers: {
     addToHistory: (state, action) => {
