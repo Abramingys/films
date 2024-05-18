@@ -16,7 +16,7 @@ export function HistoriesBlock({ histories }) {
       ) : (
         histories.map((item, index) => (
           <Link key={index} to={`/search?keyword=${item}`}>
-            <li key={index}>
+            <li>
               <p>{item}</p>
             </li>
           </Link>
