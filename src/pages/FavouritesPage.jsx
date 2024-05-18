@@ -7,7 +7,6 @@ import { selectFavorites } from '../redux/slices/favoriteSlice';
 
 export default function FavouritesPage() {
   const favorites = useSelector(selectFavorites);
-  console.log(favorites);
 
   const { data, error, loading } = useFetchMultiple(favorites);
 

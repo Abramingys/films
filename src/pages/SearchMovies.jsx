@@ -6,10 +6,6 @@ import { Loader } from '../components/Loader/Loader';
 import { Movies } from '../components/Movies/Movies';
 import { getApiUrl, useFetch } from '../hooks/useFetch';
 import { addToHistory } from '../redux/slices/historySlice';
-import {
-  getLocalStorageItem,
-  setLocalStorageHistory,
-} from '../utils/LocalStorageUtil';
 
 export default function SearchMovies() {
   const dispatch = useDispatch();
@@ -18,13 +14,11 @@ export default function SearchMovies() {
   const { data, error } = useFetch(getApiUrl(`/films?keyword=${searchName}`));
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-  if (isLoggedIn) {
-    useEffect(() => {
-      if (searchName) {
-        dispatch(addToHistory(searchName));
-      }
-    }, [dispatch, searchName]);
-  }
+  useEffect(() => {
+    if (searchName && isLoggedIn) {
+      dispatch(addToHistory(searchName));
+    }
+  }, [dispatch, searchName, isLoggedIn]);
 
   if (error || !data) {
     return <Loader />;
