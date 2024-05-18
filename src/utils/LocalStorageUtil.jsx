@@ -10,3 +10,25 @@ export const setLocalStorageItem = (key, value) => {
 export const removeLocalStorageItem = (key) => {
   localStorage.removeItem(key);
 };
+
+export const setLocalStorageHistory = (arr) => {
+  const users = getLocalStorageItem('users');
+  const email = getLocalStorageItem('loggedInUser').email;
+
+  if (users.hasOwnProperty(email)) {
+    users[email].history = arr;
+    setLocalStorageItem('users', users);
+  }
+};
+
+export const getLocalStorageHistory = () => {
+  const loggedInUser = getLocalStorageItem('loggedInUser');
+  const users = getLocalStorageItem('users') || {};
+  // console.log(users[loggedInUser.email].history);
+  // console.log(loggedInUser);
+  // console.log(users);
+  if (loggedInUser && users.hasOwnProperty(loggedInUser.email)) {
+    return users[loggedInUser.email].history || [];
+  }
+  return [];
+};

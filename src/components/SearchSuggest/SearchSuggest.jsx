@@ -4,6 +4,8 @@ import { Loader } from '../Loader/Loader';
 import styles from './SearchSuggest.module.scss';
 
 export function SearchSuggest({ data, setData, error, setQuery }) {
+  // console.log(data);
+
   return (
     <ul className={styles.searchSuggest}>
       {error || data === undefined ? (
@@ -12,7 +14,6 @@ export function SearchSuggest({ data, setData, error, setQuery }) {
         data.map(({ nameRu, nameOriginal, kinopoiskId }) => (
           <Link key={kinopoiskId} to={`/movie/${kinopoiskId}`}>
             <li
-              key={kinopoiskId}
               onClick={() => {
                 setData((data.items = []));
                 setQuery('');

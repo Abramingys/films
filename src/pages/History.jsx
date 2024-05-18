@@ -6,5 +6,6 @@ import { selectHistory } from '../redux/slices/historySlice';
 export default function History() {
   const histories = useSelector(selectHistory);
   console.log(histories);
+
   return <HistoriesBlock histories={histories} />;
 }
