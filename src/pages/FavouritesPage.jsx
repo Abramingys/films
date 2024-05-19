@@ -1,10 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import { FavouritesItem } from '../components/FavouritesItem/FavouritesItem';
-import { Loader } from '../components/Loader/Loader';
-import { Movies } from '../components/Movies/Movies';
 import useAuth from '../hooks/useAuth';
-import useFetchMultiple from '../hooks/useFetchMultiple';
 import { selectFavorites } from '../redux/slices/favoriteSlice';
 
 export default function FavouritesPage() {

@@ -8,24 +8,25 @@ import {
 export const historySlice = createSlice({
   name: 'history',
   initialState: {
-    histories: [],
+    histories: getLocalStorageHistory(),
   },
   reducers: {
     addToHistory: (state, action) => {
-      const item = action.payload;
-      if (!state.histories.includes(item)) {
-        state.histories.push(item);
+      const { userId, historiesId } = action.payload;
+
+      if (!state.histories[userId]) {
+        state.histories[userId] = [];
+      }
+
+      if (!state.histories[userId].includes(historiesId)) {
+        state.histories[userId].push(historiesId);
         setLocalStorageHistory(state.histories);
       }
-    },
-    loadHistoryFromLocalStorage: (state) => {
-      state.histories = getLocalStorageHistory();
     },
   },
 });
 
-export const { addToHistory, loadHistoryFromLocalStorage } =
-  historySlice.actions;
+export const { addToHistory } = historySlice.actions;
 export const selectHistory = (state) => state.history.histories;
 
 export default historySlice.reducer;

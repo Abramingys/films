@@ -9,7 +9,7 @@ export default function useFetchMultiple(values, options = {}) {
     if (!values || values.length === 0) {
       setData([]);
       setLoading(false);
-      setError('No values provided for fetching.');
+      setError('No values');
       return;
     }
 
