@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
@@ -5,7 +6,7 @@ import styles from './FilmInformation.module.scss';
 
 export function FilmInformation({ filmDetails }) {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  console.log(filmDetails);
+
   return (
     <div className={styles.filmInformation}>
       <img
@@ -22,3 +23,13 @@ export function FilmInformation({ filmDetails }) {
     </div>
   );
 }
+
+FilmInformation.propTypes = {
+  filmDetails: PropTypes.shape({
+    posterUrlPreview: PropTypes.string,
+    nameRu: PropTypes.string,
+    nameOriginal: PropTypes.string,
+    kinopoiskId: PropTypes.number,
+    description: PropTypes.string,
+  }).isRequired,
+};

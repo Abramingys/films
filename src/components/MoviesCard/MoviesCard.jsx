@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
@@ -30,8 +30,8 @@ export function MoviesCard({
   );
 }
 MoviesCard.propTypes = {
-  posterUrl: PropTypes.string.isRequired,
+  posterUrl: PropTypes.string,
   nameRu: PropTypes.string,
-  year: PropTypes.number.isRequired,
+  year: PropTypes.number,
   nameOriginal: PropTypes.string,
 };

@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import styles from './HistoriesBlock.module.scss';
 
 export function HistoriesBlock({ histories }) {
+  if (!histories) {
+    return <div>error</div>;
+  }
+
   return (
     <ul className={styles.root}>
       {histories.length === 0 ? (
@@ -12,7 +16,7 @@ export function HistoriesBlock({ histories }) {
       ) : (
         histories.map((item, index) => (
           <Link key={index} to={`/search?keyword=${item}`}>
-            <li key={index}>
+            <li>
               <p>{item}</p>
             </li>
           </Link>

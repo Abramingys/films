@@ -1,5 +1,6 @@
 import { MoviesCard } from '../MoviesCard/MoviesCard';
 import styles from './Movies.module.scss';
+import { Loader } from '../Loader/Loader';
 
 export function Movies({ films, error }) {
   if (error || !films) {
