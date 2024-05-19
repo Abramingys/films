@@ -30,12 +30,10 @@ export const getLocalStorageHistory = () => {
   return [];
 };
 
-export const setLocalStorageFavourite = (arr) => {
-  const users = getLocalStorageItem('users');
-  const email = getLocalStorageItem('loggedInUser').email;
+export const setLocalStorageFavourite = (favourite) => {
+  return setLocalStorageItem('favourite', favourite);
+};
 
-  if (users.hasOwnProperty(email)) {
-    users[email].favourite = arr;
-    setLocalStorageItem('users', users);
-  }
+export const getLocalStorageFavourite = () => {
+  return getLocalStorageItem('favourite', {});
 };
