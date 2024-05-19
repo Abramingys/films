@@ -3,13 +3,9 @@ import { Link } from 'react-router-dom';
 import styles from './HistoriesBlock.module.scss';
 
 export function HistoriesBlock({ histories }) {
-  if (!histories) {
-    return <div>error</div>;
-  }
-
   return (
     <ul className={styles.root}>
-      {histories.length === 0 ? (
+      {!histories ? (
         <li>
           <div>Histories empty</div>
         </li>
