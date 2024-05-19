@@ -26,7 +26,7 @@
 - [x] Есть рендеринг [списков](https://github.com/Abramingys/films/blob/main/src/components/Movies/Movies.jsx)
 - [x] Реализованы форма ([RegistrationForm](https://github.com/Abramingys/films/blob/main/src/components/RegistrationForm/RegistrationForm.jsx)),
 - [x] Есть применение Контекст API ([ThemeContext](https://github.com/Abramingys/films/blob/main/src/providers/themeContext.jsx))
-- [x] Есть применение предохранителя ([ErrorBoundary](https://github.com/angelinaivanova16/collection-of-recipes-react/blob/main/src/componets/common/errorBoundary.jsx))
+- [x] Есть применение предохранителя ([ErrorBoundary](https://github.com/Abramingys/films/blob/main/src/routing/router.jsx))
 - [x] Есть кастомный хук ([useFetch](https://github.com/Abramingys/films/blob/main/src/hooks/useFetch.jsx), [useTheme](https://github.com/Abramingys/films/blob/main/src/hooks/useTheme.jsx))
 - [x] Пара компонентов использует PropTypes ([MoviesCard](https://github.com/Abramingys/films/blob/main/src/components/MoviesCard/MoviesCard.jsx), [FilmInformation](https://github.com/Abramingys/films/blob/main/src/components/FilmInformation/FilmInformation.jsx))
 - [x] Использую useDebounce ([useDebounce](https://github.com/Abramingys/films/blob/main/src/hooks/useDebounce.jsx), [SearchForm](https://github.com/Abramingys/films/blob/main/src/components/Search/Search.jsx))
