@@ -6,5 +6,5 @@ import { selectIsLoggedIn } from '../../redux/slices/authSlice';
 export function ProtectedRoute({ children }) {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return isLoggedIn ? { children } : <Navigate to="/registration" />;
+  return isLoggedIn ? children : <Navigate to="/registration" />;
 }
