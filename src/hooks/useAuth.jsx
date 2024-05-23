@@ -47,6 +47,7 @@ export default function useAuth() {
     removeLocalStorageItem('loggedInUser');
     setCurrentUser({});
     dispatch(logOut());
+    navigate('/');
   };
 
   const addUser = (user) => {

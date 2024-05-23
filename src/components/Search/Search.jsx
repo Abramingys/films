@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { useDebounce } from '../../hooks/useDebounce';
 import { getApiUrl, useFetch } from '../../hooks/useFetch';
@@ -9,6 +9,8 @@ import styles from './Search.module.scss';
 
 export function Search() {
   const [query, setQuery] = useState('');
+  const [searchParams] = useSearchParams();
+  const keyword = searchParams.get('keyword') || '';
 
   const debouncedQuery = useDebounce(query, 500);
 
@@ -40,6 +42,9 @@ export function Search() {
   const handleFormClick = () => {
     setIsOpen(true);
   };
+  useEffect(() => {
+    setQuery(keyword);
+  }, [keyword, searchParams]);
 
   return (
     <form onSubmit={handleSearch} className={styles.search}>
