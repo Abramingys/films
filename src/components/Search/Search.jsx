@@ -9,8 +9,10 @@ import styles from './Search.module.scss';
 
 export function Search() {
   const [query, setQuery] = useState('');
-  const [isFocused, setIsFocused] = useState(false);
+
   const debouncedQuery = useDebounce(query, 500);
+
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { data, setData, loading, error } = useFetch(
     debouncedQuery.length > 2
@@ -32,9 +34,11 @@ export function Search() {
     e.preventDefault();
     if (debouncedQuery.length > 2 && !loading && data.items.length > 0) {
       navigate(`/search?keyword=${query}`);
-      setQuery('');
-      setData((data.items = []));
+      setIsOpen(false);
     }
+  };
+  const handleFormClick = () => {
+    setIsOpen(true);
   };
 
   return (
@@ -42,10 +46,9 @@ export function Search() {
       <input
         value={query}
         onChange={handleInputChange}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
         className={styles.searchText}
         type="text"
+        onClick={handleFormClick}
         placeholder="What do you want to watch?"
       />
       {query && (
@@ -60,14 +63,16 @@ export function Search() {
         </svg>
       )}
       <PageButton text={'Search'} />
-      {query && (
-        <SearchSuggest
-          data={data?.items}
-          setData={setData}
-          error={error}
-          setQuery={setQuery}
-        />
-      )}
+      {query.length === 0 ||
+        (isOpen && (
+          <SearchSuggest
+            setIsOpen={setIsOpen}
+            data={data?.items}
+            setData={setData}
+            error={error}
+            setQuery={setQuery}
+          />
+        ))}
     </form>
   );
 }
