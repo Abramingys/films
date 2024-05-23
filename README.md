@@ -35,4 +35,4 @@
 - [x] Использую слайсы ([historySlice](https://github.com/Abramingys/films/blob/main/src/redux/slices/historySlice.js), [favoriteSlice](https://github.com/Abramingys/films/blob/main/src/redux/slices/favoriteSlice.js))
 - [x] Есть кастомная [мидлвара](https://github.com/Abramingys/films/blob/main/src/redux/slices/historyMiddleware.js)
 - [x] Используется [RTK Query](https://github.com/Abramingys/films/blob/main/src/api/kinopoiskApi.jsx)
-- [ ] Используется [Transforming Responses](https://github.com/Abramingys/films/blob/main/src/api/kinopoiskApi.jsx)
+- [x] Используется [Transforming Responses](https://github.com/Abramingys/films/blob/main/src/api/kinopoiskApi.jsx)
