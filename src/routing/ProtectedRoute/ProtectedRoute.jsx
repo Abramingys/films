@@ -3,8 +3,8 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 import { selectIsLoggedIn } from '../../redux/slices/authSlice';
 
-export function ProtectedRoute() {
+export function ProtectedRoute({ children }) {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return isLoggedIn ? <Outlet /> : <Navigate to="/registration" />;
+  return isLoggedIn ? { children } : <Navigate to="/registration" />;
 }

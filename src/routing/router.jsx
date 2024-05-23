@@ -65,21 +65,25 @@ export const router = createBrowserRouter([
       {
         path: '/favourites',
         element: (
-          <Suspense fallback={<Loader />}>
-            <ErrorBoundary>
-              <FavouritesPage />
-            </ErrorBoundary>
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<Loader />}>
+              <ErrorBoundary>
+                <FavouritesPage />
+              </ErrorBoundary>
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
         path: '/history',
         element: (
-          <Suspense fallback={<Loader />}>
-            <ErrorBoundary>
-              <History />
-            </ErrorBoundary>
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<Loader />}>
+              <ErrorBoundary>
+                <History />
+              </ErrorBoundary>
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
