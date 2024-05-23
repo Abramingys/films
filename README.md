@@ -33,6 +33,6 @@
 - [x] Есть применение [lazy + Suspense](https://github.com/Abramingys/films/blob/main/src/routing/router.jsx)
 - [x] Использую Modern Redux with Redux Toolkit ([store](https://github.com/Abramingys/films/blob/main/src/redux/store.js))
 - [x] Использую слайсы ([historySlice](https://github.com/Abramingys/films/blob/main/src/redux/slices/historySlice.js), [favoriteSlice](https://github.com/Abramingys/films/blob/main/src/redux/slices/favoriteSlice.js))
-- [ ] Есть кастомная мидлвара
-- [ ] Используется RTK Query
-- [ ] Используется Transforming Responses
+- [x] Есть кастомная [мидлвара](https://github.com/Abramingys/films/blob/main/src/redux/slices/historyMiddleware.js)
+- [x] Используется [RTK Query](https://github.com/Abramingys/films/blob/main/src/api/kinopoiskApi.jsx)
+- [ ] Используется [Transforming Responses](https://github.com/Abramingys/films/blob/main/src/api/kinopoiskApi.jsx)
