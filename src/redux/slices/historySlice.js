@@ -1,9 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  getLocalStorageHistory,
-  setLocalStorageHistory,
-} from '../../utils/LocalStorageUtil';
+import { getLocalStorageHistory } from '../../utils/LocalStorageUtil';
 
 export const historySlice = createSlice({
   name: 'history',
@@ -20,7 +17,6 @@ export const historySlice = createSlice({
 
       if (!state.histories[userId].includes(historiesId)) {
         state.histories[userId].push(historiesId);
-        setLocalStorageHistory(state.histories);
       }
     },
   },

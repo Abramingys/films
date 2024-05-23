@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { selectIsLoggedIn } from '../../redux/slices/authSlice';
 import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
 import styles from './MoviesCard.module.scss';
 
@@ -12,7 +13,7 @@ export function MoviesCard({
   nameOriginal,
   kinopoiskId,
 }) {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <li className={styles.moviesCard}>
