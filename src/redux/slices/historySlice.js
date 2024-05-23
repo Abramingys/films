@@ -20,7 +20,6 @@ export const historySlice = createSlice({
 
       if (!state.histories[userId].includes(historiesId)) {
         state.histories[userId].push(historiesId);
-        setLocalStorageHistory(state.histories);
       }
     },
   },
