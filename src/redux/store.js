@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import { kinopoiskApi } from '../api/kinopoiskApi';
 import authReducer from './slices/authSlice';
 import favoriteReducer from './slices/favoriteSlice';
 import { historyMiddleware } from './slices/historyMiddleware';
@@ -10,7 +11,10 @@ export const store = configureStore({
     auth: authReducer,
     favorite: favoriteReducer,
     history: historyReducer,
+    [kinopoiskApi.reducerPath]: kinopoiskApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(historyMiddleware),
+    getDefaultMiddleware()
+      .concat(kinopoiskApi.middleware)
+      .concat(historyMiddleware),
 });

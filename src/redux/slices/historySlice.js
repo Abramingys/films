@@ -1,9 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  getLocalStorageHistory,
-  setLocalStorageHistory,
-} from '../../utils/LocalStorageUtil';
+import { getLocalStorageHistory } from '../../utils/LocalStorageUtil';
 
 export const historySlice = createSlice({
   name: 'history',

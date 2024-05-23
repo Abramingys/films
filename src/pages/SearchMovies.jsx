@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
+import { useGetMoviesBySearchQuery } from '../api/kinopoiskApi';
 import { Loader } from '../components/Loader/Loader';
 import { Movies } from '../components/Movies/Movies';
 import useAuth from '../hooks/useAuth';
-import { getApiUrl, useFetch } from '../hooks/useFetch';
 import { addToHistory } from '../redux/slices/historySlice';
 
 export default function SearchMovies() {
@@ -15,8 +15,10 @@ export default function SearchMovies() {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const searchName = searchParams.get('keyword');
-  const { data, error } = useFetch(getApiUrl(`/films?keyword=${searchName}`));
+
+  const { data, error } = useGetMoviesBySearchQuery(searchName);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  console.log(searchName);
 
   useEffect(() => {
     if (searchName && isLoggedIn && userId) {
