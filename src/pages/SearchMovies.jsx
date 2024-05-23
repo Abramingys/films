@@ -6,6 +6,7 @@ import { useGetMoviesBySearchQuery } from '../api/kinopoiskApi';
 import { Loader } from '../components/Loader/Loader';
 import { Movies } from '../components/Movies/Movies';
 import useAuth from '../hooks/useAuth';
+import { selectIsLoggedIn } from '../redux/slices/authSlice';
 import { addToHistory } from '../redux/slices/historySlice';
 
 export default function SearchMovies() {
@@ -17,8 +18,7 @@ export default function SearchMovies() {
   const searchName = searchParams.get('keyword');
 
   const { data, error } = useGetMoviesBySearchQuery(searchName);
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  console.log(searchName);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     if (searchName && isLoggedIn && userId) {
