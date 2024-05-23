@@ -17,7 +17,6 @@ export const favoriteSlice = createSlice({
         state.favorites[userId] = [];
       }
       state.favorites[userId].push(favouriteId);
-      setLocalStorageFavourite(state.favorites);
     },
     removeFromFavorites: (state, action) => {
       const { userId, favouriteId } = action.payload;
@@ -26,7 +25,6 @@ export const favoriteSlice = createSlice({
           (id) => id !== favouriteId,
         );
       }
-      setLocalStorageFavourite(state.favorites);
     },
   },
 });

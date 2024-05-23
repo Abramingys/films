@@ -18,16 +18,19 @@ export const kinopoiskApi = createApi({
           page: 2,
         },
       }),
+      transformResponse: (response) => response.items,
     }),
     getMoviesById: build.query({
       query: (id) => ({
         url: `/v2.2/films/${id}`,
       }),
+      transformResponse: (response) => response,
     }),
     getMoviesBySearch: build.query({
       query: (query) => ({
         url: `/v2.2/films?keyword=${query}`,
       }),
+      transformResponse: (response) => response.items,
     }),
   }),
 });
