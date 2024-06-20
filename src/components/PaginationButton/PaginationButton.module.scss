@@ -1,0 +1,24 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  &Btn {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background: var(--apricot);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    &:active {
+      transform: scale(0.95);
+    }
+    &:hover {
+      font-size: 18px;
+    }
+  }
+
+  button:disabled {
+    opacity: 0.5;
+  }
+}
