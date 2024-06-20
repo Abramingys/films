@@ -18,7 +18,7 @@ export const kinopoiskApi = createApi({
           page: page,
         },
       }),
-      transformResponse: (response) => response.items,
+      transformResponse: (response) => response,
     }),
     getMoviesById: build.query({
       query: (id) => ({

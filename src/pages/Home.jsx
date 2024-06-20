@@ -8,14 +8,14 @@ import { PaginationButton } from '../components/PaginationButton/PaginationButto
 export default function Home() {
   const [page, setPage] = useState(1);
   const { data, loading, error } = useGetInitialMoviesQuery(page);
-  console.log(data);
+
   if (error || !data) {
     return <Loader />;
   }
 
   return (
     <>
-      <Movies films={data} isLoading={loading} />
+      <Movies films={data.items} isLoading={loading} />
       <PaginationButton setPage={setPage} page={page} data={data} />
     </>
   );
