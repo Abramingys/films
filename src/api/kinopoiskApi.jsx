@@ -30,7 +30,7 @@ export const kinopoiskApi = createApi({
       query: (query) => ({
         url: `/v2.2/films?keyword=${query}`,
       }),
-      transformResponse: (response) => response.items,
+      transformResponse: (response) => response,
     }),
   }),
 });

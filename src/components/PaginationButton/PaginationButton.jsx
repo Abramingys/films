@@ -5,7 +5,6 @@ export function PaginationButton({ page, setPage, data }) {
     { length: data.totalPages },
     (_, index) => index + 1,
   );
-  console.log(page);
 
   const handleNextPage = () => {
     setPage((prevPage) => prevPage + 1);

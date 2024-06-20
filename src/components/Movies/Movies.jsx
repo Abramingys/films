@@ -1,6 +1,6 @@
+import { Loader } from '../Loader/Loader';
 import { MoviesCard } from '../MoviesCard/MoviesCard';
 import styles from './Movies.module.scss';
-import { Loader } from '../Loader/Loader';
 
 export function Movies({ films, error }) {
   if (error || !films) {
@@ -9,7 +9,7 @@ export function Movies({ films, error }) {
   return (
     <div className={styles.movies}>
       <p className={styles.moviesFoundResult}>
-        <b>{films.length}</b> movies found
+        <b>{films.length}</b> фильмов найдено
       </p>
       <ul className={styles.moviesList}>
         {films.map(({ nameRu, year, posterUrl, kinopoiskId, nameOriginal }) => (

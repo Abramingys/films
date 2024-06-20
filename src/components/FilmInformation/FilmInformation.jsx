@@ -18,7 +18,7 @@ export function FilmInformation({ filmDetails }) {
 
       <div className={styles.filmDetails}>
         {isLoggedIn && <FavoriteButton kinopoiskId={filmDetails.kinopoiskId} />}
-        <h1>{filmDetails.nameRu || filmDetails.nameOriginal}</h1>
+        <h1>{`${filmDetails.nameRu || filmDetails.nameOriginal} ${filmDetails.year}`}</h1>
         <p>{filmDetails.description ?? 'Описание фильма в разработке...'}</p>
       </div>
     </div>

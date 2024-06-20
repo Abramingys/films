@@ -20,17 +20,17 @@ export function Header() {
           </Link>
           {loading ? null : isLoggedIn ? (
             <>
-              <PageButton text={'Log out'} handle={handleLogout} />
+              <PageButton text={'Выйти'} handle={handleLogout} />
               <Link to="/favourites">
-                <PageButton text={'Favourites Page'} />
+                <PageButton text={'Избранные'} />
               </Link>
               <Link to="/history">
-                <PageButton text={'History Page'} />
+                <PageButton text={'История'} />
               </Link>
             </>
           ) : (
             <Link to="/registration">
-              <PageButton text={'Log In'} />
+              <PageButton text={'Войти'} />
             </Link>
           )}
 
