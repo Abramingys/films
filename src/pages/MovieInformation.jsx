@@ -8,6 +8,7 @@ export default function MovieInformation() {
   const { id } = useParams();
 
   const { data, error } = useGetMoviesByIdQuery(id);
+  console.log(data);
 
   if (error || !data) {
     return <Loader />;

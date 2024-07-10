@@ -6,6 +6,9 @@
   padding-bottom: 70px;
 
   &FoundResult {
+    color: var(--apricot);
+    text-decoration: underline;
+    font-size: 24px;
     font-weight: 400;
     padding: 24px 0;
   }
