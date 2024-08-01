@@ -29,6 +29,7 @@ export default function SearchMovies() {
     }
   }, [dispatch, searchName, isLoggedIn, userId]);
 
+  console.log(data);
   if (error || !data) {
     return <Loader />;
   }
