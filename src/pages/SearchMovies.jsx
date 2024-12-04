@@ -28,7 +28,8 @@ export default function SearchMovies() {
       dispatch(addToHistory({ historiesId: searchName, userId }));
     }
   }, [dispatch, searchName, isLoggedIn, userId]);
-
+  console.log('hi');
+  
   
   if (error || !data) {
     return <Loader />;
