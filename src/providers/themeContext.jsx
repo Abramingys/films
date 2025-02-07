@@ -7,16 +7,13 @@ const ThemeContext = createContext();
 export default function ThemeProvider({ children }) {
   const { theme, setTheme } = useTheme();
 
-  const ThemeContextValue = useMemo(
-    () => ({
-      theme,
-      setTheme,
-    }),
-    [theme, setTheme],
+  const themeContextValue = useMemo(
+    () => ({ theme, setTheme }),
+    [theme, setTheme]
   );
 
   return (
-    <ThemeContext.Provider value={ThemeContextValue}>
+    <ThemeContext.Provider value={themeContextValue}>
       {children}
     </ThemeContext.Provider>
   );

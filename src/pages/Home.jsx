@@ -12,7 +12,7 @@ export default function Home() {
   if (error || !data) {
     return <Loader />;
   }
-
+  console.log(data);
   return (
     <>
       <Movies films={data.items} isLoading={loading} />
